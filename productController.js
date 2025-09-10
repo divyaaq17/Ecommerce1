@@ -1,19 +1,16 @@
-const productService = require("../services/productService");
+const path = require("path");
 
 const getProducts = (req,res) =>{
-  const response = productService.getAllProducts();
-  res.send(response);
+     res.sendFile(path.join(__dirname, "../views/products.html"));
 }
 
 const getProductsById = (req,res) =>{
     const { id } = req.params;
-    const response = productService.getProductById(id);
-    res.send(response);
+  res.send(`Fetching product with ID: ${id}`);
 }
 
 const postProducts = (req,res) =>{
-    const response = productService.postProduct(newProduct);
-  res.send(response);
+    res.send("New product added");
 }
 
 module.exports={
